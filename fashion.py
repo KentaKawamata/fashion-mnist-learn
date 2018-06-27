@@ -28,7 +28,6 @@ def CNN(input_shape):
 
 def plot_history(history):
 
-  score = model.evaluate(x_test, y_test, verbose=0)
   print('Test loss:', score[0])
   print('Test accuracy:', score[1])
 
@@ -91,7 +90,7 @@ def main():
 
   plot_history(history)
   
-  #loss, acc = model.evaliate(x_test, y_test, verbose=0)
+  loss, acc = model.evaliate(x_test, y_test, verbose=0)
 
   print('save the architecture of a CNN model')
   json_string = model.to_json()
