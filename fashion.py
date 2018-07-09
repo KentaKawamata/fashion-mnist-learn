@@ -11,6 +11,7 @@ from keras.callbacks import EarlyStopping
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.optimizers import Adam
 import keras.backend.tensorflow_backend as KTF
+from keras.utils import plot_model
 
 def CNN(input_shape):
   model=Sequential()
@@ -78,6 +79,8 @@ def main():
 
   model = CNN(input_shape)
   early = EarlyStopping()
+
+  plot_model(model, to_file="model.png")
 
   model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer='adam', metrics=['accuracy'])
