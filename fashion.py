@@ -80,7 +80,8 @@ def main():
   model = CNN(input_shape)
   early = EarlyStopping()
 
-  plot_model(model, to_file="model.png")
+  model.summary()
+  plot_model(model, to_file="model.png", show_shapes=True, show_layer_names=True)
 
   model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer='adam', metrics=['accuracy'])
